@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定和普通事件有什么区别</title>
+</head>
+<body>
+<script>
+    //普通添加事件的方法：
+
+    var btn = document.getElementById("hello");
+    btn.onclick = function(){
+        alert(1);
+    }
+    btn.onclick = function(){
+        alert(2);
+    }
+    //执行上面的代码只会alert 2
+
+    //事件绑定方式添加事件：
+
+    var btn = document.getElementById("hello");
+    btn.addEventListener("click",function(){
+        alert(1);
+    },false);
+    btn.addEventListener("click",function(){
+        alert(2);
+    },false);
+   // 执行上面的代码会先alert 1 再 alert 2
+
+   // 普通添加事件的方法不支持添加多个事件，最下面的事件会覆盖上面的，而事件绑定（addEventListener）方式添加事件可以添加多个。
+</script>
+</body>
+</html>
